@@ -1,24 +1,22 @@
-import Ember from 'ember';
 /* global Auth0Lock */
+
+import Ember from 'ember';
+import config from 'start/config/environment';
 
 const { service } = Ember.inject;
 
-var lock = new Auth0Lock('m2g7qIaQJngPtHOs5zl4bEHsVrSywa7W', 'ntotten-demo.auth0.com');
+var lock = new Auth0Lock(config.Auth0.clientId, config.Auth0.domain);
 
 export default Ember.Component.extend({
-  session: service('session'),
-
-
   didRender: function() {
     this._super(...arguments);
-
     lock.show({
-            callbackURL: 'http://localhost:4200/callback'
-          , responseType: 'token'
-          , authParams: {
-            scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
-          }
-        });
+        callbackURL: 'http://localhost:4200/callback'
+      , responseType: 'token'
+      , authParams: {
+        scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    });
 
   },
 

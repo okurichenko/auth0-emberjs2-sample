@@ -16,6 +16,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    Auth0: {
+      clientId: 'm2g7qIaQJngPtHOs5zl4bEHsVrSywa7W',
+      domain: 'ntotten-demo.auth0.com',
+      callbackUrl: 'http://localhost:4200/callback',
     }
   };
 
