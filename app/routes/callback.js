@@ -5,7 +5,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
 
   beforeModel(transition) {
     this._super(...arguments);
-    this.get('session').authenticate('authenticator:auth0', window.location.hash).catch((reason) => {
+    this.get('session').authenticate('authenticator:auth0').catch((reason) => {
       this.set('errorMessage', reason.error);
     });
   }
