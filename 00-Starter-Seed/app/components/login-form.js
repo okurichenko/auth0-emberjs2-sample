@@ -1,7 +1,7 @@
 /* global Auth0Lock */
 
 import Ember from 'ember';
-import config from 'start/config/environment';
+import config from 'starter-seed/config/environment';
 
 const { service } = Ember.inject;
 
@@ -11,9 +11,9 @@ export default Ember.Component.extend({
   didRender: function() {
     this._super(...arguments);
     lock.show({
-        callbackURL: 'http://localhost:4200/callback'
-      , responseType: 'token'
-      , authParams: {
+      callbackURL: 'http://localhost:4200/callback',
+      responseType: 'token',
+      authParams: {
         scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
       }
     });

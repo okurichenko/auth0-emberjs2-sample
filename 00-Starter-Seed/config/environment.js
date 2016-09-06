@@ -2,11 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'start',
+    modulePrefix: 'starter-seed',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
+      EXTEND_PROTOTYPES: {
+        Date: false,
+      },
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
