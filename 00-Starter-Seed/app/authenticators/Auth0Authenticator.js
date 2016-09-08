@@ -130,15 +130,27 @@ export default BaseAuthenticator.extend({
     @public
   */
   authenticate(hash) {
+    var that = this;
     return new RSVP.Promise((resolve, reject) => {
-      var lock = new Auth0Lock('m2g7qIaQJngPtHOs5zl4bEHsVrSywa7W', 'ntotten-demo.auth0.com');
-      var options = lock.parseHash();
-      const expiresAt = this._absolutizeExpirationTime(options.expires_in);
-      this._scheduleAccessTokenRefresh(options.expires_in, expiresAt, options.refresh_token);
-      if (!isEmpty(expiresAt)) {
-        options = assign(options, { 'expires_at': expiresAt });
-      }
-      resolve(options);
+      var lock = new Auth0Lock(that.clientId, that.auth0Domain);
+      lock.on("authenticated", function(authResult) {
+        // Use the token in authResult to getProfile() and save it to localStorage
+        lock.getProfile(authResult.idToken, function(error, profile) {
+          if (error) {
+            reject(error);
+          }
+
+          const expiresAt = that._absolutizeExpirationTime(authResult.idTokenPayload.exp);
+          that._scheduleAccessTokenRefresh(
+            authResult.idTokenPayload.exp,
+            expiresAt,
+            authResult.refreshToken);
+          resolve(authResult);
+
+          localStorage.setItem('token', authResult.idToken);
+          localStorage.setItem('profile', JSON.stringify(profile));
+        });
+      });
     });
   },
 
