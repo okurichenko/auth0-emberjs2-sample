@@ -148,7 +148,7 @@ export default BaseAuthenticator.extend({
           resolve(authResult);
 
           localStorage.setItem('token', authResult.idToken);
-          localStorage.setItem('profile', JSON.stringify(profile));
+          localStorage.setItem('profile', JSON.stringify(profile, null, ' '));
         });
       });
     });

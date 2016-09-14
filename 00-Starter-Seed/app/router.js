@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('auth-error');
   this.route('login');
   this.route('callback');
+  this.route('user-profile');
 });
 
 export default Router;
