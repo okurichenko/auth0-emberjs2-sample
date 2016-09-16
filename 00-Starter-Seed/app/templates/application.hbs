@@ -1,4 +1,7 @@
-{{main-navigation onLogin='transitionToLoginRoute'}}
+{{main-navigation
+  onLogout='transitionToHomeRoute'
+  onLogin='transitionToLoginRoute'
+}}
 <div class='container'>
   {{outlet}}
 </div>
