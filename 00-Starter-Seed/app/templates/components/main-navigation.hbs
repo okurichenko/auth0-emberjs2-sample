@@ -9,9 +9,6 @@
       {{#link-to 'protected' tagName='li'}}
         <a href="#">Protected Page</a>
       {{/link-to}}
-      {{#link-to 'auth-error' tagName='li'}}
-        <a href="#">Auth Error Page</a>
-      {{/link-to}}
       {{#if session.isAuthenticated}}
         {{#link-to 'user-profile' tagName='li'}}
           <a href="#">Profile</a>
