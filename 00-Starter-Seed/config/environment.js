@@ -22,8 +22,8 @@ module.exports = function(environment) {
     },
 
     Auth0: {
-      clientId: 'm2g7qIaQJngPtHOs5zl4bEHsVrSywa7W',
-      domain: 'ntotten-demo.auth0.com',
+      clientId: {CLIENT_ID},
+      domain: {DOMAIN},
       callbackUrl: 'http://localhost:4200/callback',
     }
   };
