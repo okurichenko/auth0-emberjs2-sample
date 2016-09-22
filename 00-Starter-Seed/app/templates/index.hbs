@@ -5,11 +5,6 @@
       <h1>Ember Sarter Seed</h1>
     </div>
   </div>
-  {{#unless session.isAuthenticated}}
-    <div class="alert alert-info">
-      You can {{#link-to 'login' classNames='alert-link'}}log in{{/link-to}} with login <code>letme</code> and password <code>in</code>.
-    </div>
-  {{/unless}}
   <div class="alert alert-info">
     The dummy app provides one route - the {{#link-to 'protected'}}Protected Page{{/link-to}} that loads some Ember Data models where the API validates that the request is authorized.
   </div>
