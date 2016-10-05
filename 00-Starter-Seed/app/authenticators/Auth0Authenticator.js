@@ -56,9 +56,8 @@ export default BaseAuthenticator.extend({
     @public
   */
   authenticate(hash) {
-    var that = this;
     return new RSVP.Promise((resolve, reject) => {
-      var lock = new Auth0Lock(that.clientId, that.auth0Domain);
+      var lock = new Auth0Lock(this.clientId, this.auth0Domain);
       lock.on("authenticated", function(authResult) {
         // Use the token in authResult to getProfile() and save it to localStorage
         lock.getProfile(authResult.idToken, function(error, profile) {
@@ -73,7 +72,7 @@ export default BaseAuthenticator.extend({
 
         });
       });
-    });
+    }.bind(this));
   },
 
   /**
