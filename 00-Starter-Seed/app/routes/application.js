@@ -4,6 +4,11 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 const { service } = Ember.inject;
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+
+  sessionInvalidated() {
+    this.transitionTo('index');
+  },
+
   sessionAccount: service('session-account'),
 
   beforeModel() {

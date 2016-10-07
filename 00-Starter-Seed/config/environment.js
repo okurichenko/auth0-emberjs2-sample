@@ -2,11 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'start',
+    modulePrefix: 'starter-seed',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
+      EXTEND_PROTOTYPES: {
+        Date: false,
+      },
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
@@ -19,8 +22,8 @@ module.exports = function(environment) {
     },
 
     Auth0: {
-      clientId: 'm2g7qIaQJngPtHOs5zl4bEHsVrSywa7W',
-      domain: 'ntotten-demo.auth0.com',
+      clientId: {CLIENT_ID},
+      domain: {DOMAIN},
       callbackUrl: 'http://localhost:4200/callback',
     }
   };
@@ -28,8 +31,8 @@ module.exports = function(environment) {
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 

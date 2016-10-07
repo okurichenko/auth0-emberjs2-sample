@@ -4,6 +4,9 @@ export default Ember.Controller.extend({
   actions: {
     transitionToLoginRoute() {
       this.transitionToRoute('login');
+    },
+    transitionToHomeRoute() {
+      this.transitionToRoute('index');
     }
   }
 });

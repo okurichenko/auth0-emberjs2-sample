@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       {{#link-to 'index' classNames='navbar-brand'}}
@@ -7,20 +7,22 @@
     </div>
     <ul class="nav navbar-nav navbar-left">
       {{#link-to 'protected' tagName='li'}}
-        <a>Protected Page</a>
+        <a href="#">Protected Page</a>
       {{/link-to}}
-      {{#link-to 'auth-error' tagName='li'}}
-        <a>Auth Error Page</a>
-      {{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to 'user-profile' tagName='li'}}
+          <a href="#">Profile</a>
+        {{/link-to}}
+      {{/if}}
     </ul>
     {{! display logout button when the session is authenticated, login button otherwise }}
     {{#if session.isAuthenticated}}
-      <a {{action 'logout'}} class="btn btn-danger navbar-btn navbar-right">Logout</a>
+      <a {{action 'logout'}} class="btn btn-danger navbar-btn pull-right">Logout</a>
       {{#if sessionAccount.account}}
         <p class="navbar-text pull-right">Signed in as {{sessionAccount.account.name}}</p>
       {{/if}}
     {{else}}
-      <a {{action 'login'}} class="btn btn-success navbar-btn navbar-right">Login</a>
+      <a {{action 'login'}} class="btn btn-success navbar-btn pull-right">Login</a>
     {{/if}}
   </div>
 </nav>
