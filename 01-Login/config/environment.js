@@ -1,5 +1,7 @@
 /* jshint node: true */
 
+var auth0 = require('../auth0-variables');
+
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'starter-seed',
@@ -22,8 +24,8 @@ module.exports = function(environment) {
     },
 
     Auth0: {
-      clientId: {CLIENT_ID},
-      domain: {DOMAIN},
+      clientId: auth0.AUTH0_CLIENT_ID,
+      domain: auth0.AUTH0_DOMAIN,
       callbackUrl: 'http://localhost:4200/callback',
     }
   };

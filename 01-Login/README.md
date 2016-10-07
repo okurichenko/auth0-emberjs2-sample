@@ -1,6 +1,27 @@
 # Auth0 - Ember 2
 
-This repo contains a sample project which demonstrates how to add authentication to an Ember 2 app using Auth0.
+## Install the Dependencies
+
+Install all the necessary dependencies using npm and Bower.
+
+```bash
+npm install
+bower install
+```
+
+## Provide your Auth0 Credentials
+
+This sample uses the [Lock](https://auth0.com/lock) widget for authentication which requires the client ID and domain for your application. If you haven't already done so, [sign up](https://auth0.com/signup) for your free Auth0 account and retrieve your client ID and domain from the [dashboard](https://manage.auth0.com). Rename the `auth0-variables.js.example` file to `auth0-variables.js` and populate it with your credentials.
+
+## Running the App
+
+Ember provides a server for the application which can be accessed with the `start` command.
+
+```bash
+npm start
+```
+
+The app will be served at `localhost:4200`.
 
 ## What is Auth0?
 
