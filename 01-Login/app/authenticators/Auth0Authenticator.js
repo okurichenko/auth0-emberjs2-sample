@@ -95,5 +95,9 @@ export default BaseAuthenticator.extend({
 
     return Ember.$.ajax(options);
   },
+  
+  restore(data) {
+    return Ember.RSVP.resolve(data);
+  }
 
 });
