@@ -6,8 +6,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'starter-seed',
     environment: environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: '/demo',
+    locationType: 'hash',
     EmberENV: {
       EXTEND_PROTOTYPES: {
         Date: false,
@@ -26,7 +26,7 @@ module.exports = function(environment) {
     Auth0: {
       clientId: auth0.AUTH0_CLIENT_ID,
       domain: auth0.AUTH0_DOMAIN,
-      callbackUrl: 'http://localhost:4200/callback',
+      callbackUrl: 'http://localhost:4200/demo/#/callback',
     }
   };
 
